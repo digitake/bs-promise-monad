@@ -1,0 +1,22 @@
+{
+  "name": "bs-promise-monad",
+  "version": "0.1.1",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  },
+  "keywords": [
+    "BuckleScript",
+    "Promise",
+    "Monad"
+  ],
+  "author": "digitake@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "bs-platform": "^2.2.3"
+  },
+  "dependencies": {
+    "bs-webapi": "^0.9.1"
+  }
+}
