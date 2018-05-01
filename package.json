@@ -1,6 +1,6 @@
 {
   "name": "bs-promise-monad",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",

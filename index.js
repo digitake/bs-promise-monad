@@ -1,1 +1,0 @@
-exports.defaults = require('./src/PromiseMonad.bs')
