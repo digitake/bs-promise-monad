@@ -2,7 +2,7 @@
 // BuckleScript comes with its own parser for bsconfig.json, which is normal JSON, with the extra support of comments and trailing commas.
 {
   "name": "bs-promise-monad",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "sources": {
     "dir": "src",
     "subdirs": true
