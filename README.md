@@ -11,6 +11,6 @@ This project is a minimal syntax extension that help you to be more happy, and k
 
 simply 
 
-`open PromiseMonad`
+`open BsPromiseMonad.PromiseMonad;`
 
 and enjoy life.
