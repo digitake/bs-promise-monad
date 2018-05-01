@@ -25,7 +25,7 @@
     "bsconfig.json"
   ],
   "homepage": "https://github.com/digitake/bs-promise-monad",
-  "main": "index.js",
+  "main": "PromiseMonad.bs.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/digitake/bs-promise-monad.git"
