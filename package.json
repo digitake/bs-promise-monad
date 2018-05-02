@@ -1,0 +1,34 @@
+{
+  "name": "bs-promise-monad",
+  "version": "0.2.4",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  },
+  "keywords": [
+    "BuckleScript",
+    "Promise",
+    "Monad",
+    "ReasonML"
+  ],
+  "author": "digitake@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "bs-platform": "^2.2.3",
+    "bs-webapi": "^0.9.1"
+  },
+  "dependencies": {
+
+  },
+  "files": [
+    "src/",
+    "bsconfig.json"
+  ],
+  "homepage": "https://github.com/digitake/bs-promise-monad#bs-promise-monad",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitake/bs-promise-monad.git"
+  }
+}
