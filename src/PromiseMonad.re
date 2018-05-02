@@ -8,7 +8,10 @@ let defer = f : Js.Promise.t('a) =>
 
 let return = (a: 'a) : Js.Promise.t('a) => Js.Promise.resolve(a);
 
-let error = (a: 'a) : Js.Promise.t('a) => Js.Promise.reject(a);
+let error = (a: exn) : Js.Promise.t('a) => Js.Promise.reject(a);
 
 let (>>=) = (m: Js.Promise.t('a), f: 'a => Js.Promise.t('b)) =>
   Js.Promise.then_(f, m);
+
+let (>>|) = (m: Js.Promise.t('a), f: Js.Promise.error => Js.Promise.t('b)) =>
+  Js.Promise.catch(f, m);
