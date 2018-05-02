@@ -14,3 +14,7 @@ simply
 `open BsPromiseMonad.PromiseMonad;`
 
 and enjoy life.
+
+# Change
+
+- v0.2.0 : add Promise.reject by `error`
