@@ -13,6 +13,8 @@ simply
 
 `open BsPromiseMonad.PromiseMonad;`
 
+and enjoy life.
+
 # Example
 
 ```
@@ -44,9 +46,20 @@ error(Sorry)
 >>| (err => return(Js.log2("I handled this", err)));
 ```
 
+```
+exception Sorry;
+let breakPromise = return("I'm trying...");
 
-and enjoy life.
+breakPromise 
+>>= ( x => Js.log("Program: " ++ x) |> return )
+>>= ( y => error(Sorry) )   /* Reject here */
+>>= ( z => Js.log("this is skipped")|>return)
+>>| ( err => Js.log2("Handled error!!", err)|>return); /* Error handling here */
+```
+
 
 # Change
 
+- v0.2.6 : update example on error handling
+- v0.2.5 : add error handling (>>|)
 - v0.2.0 : add Promise.reject by `error`
