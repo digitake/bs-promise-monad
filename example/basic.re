@@ -14,7 +14,7 @@ myPromise
      Js.Promise.resolve(-2);
    });
 
-
+open PromiseMonad;
 
 let mySweetenPromise = return(2);
 
@@ -32,7 +32,11 @@ mySweetenPromise
     return(-2);
   });
 
+exception Sorry;
+let breakPromise = return("I'm trying...");
 
-  let breakPromise = error("Sorry");
-
-  breakPromise >>= ( x => Js.log("I'm" ++ x));
+breakPromise 
+>>= ( x => Js.log("Program: " ++ x) |> return )
+>>= ( y => error(Sorry) )
+>>= ( z => Js.log("this is skipped")|>return)
+>>| ( err => Js.log2("Handled error!!", err)|>return);

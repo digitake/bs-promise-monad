@@ -8,6 +8,8 @@ FLG -nostdlib -no-alias-deps -color always
 FLG -w -30-40+6+7+27+32..39+44+45+101
 S /Users/divertise/Dev/bs-promise-monad/node_modules/bs-webapi/lib/ocaml
 B /Users/divertise/Dev/bs-promise-monad/node_modules/bs-webapi/lib/ocaml
+S example
+B lib/bs/example
 S src
 B lib/bs/src
 ####BSB GENERATED: NO EDIT}
