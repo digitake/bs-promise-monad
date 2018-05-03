@@ -3,11 +3,17 @@
 {
   "name": "bs-promise-monad",
   "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
-  "version": "0.2.4",
-  "sources": {
-    "dir": "src",
-    "subdirs": true
-  },
+  "version": "0.2.5",
+  "sources": [{
+      "dir": "src",
+      "public": "all",
+      "subdirs": true
+    },
+    {
+      "dir": "example",
+      "type": "dev"
+    }
+  ],
   "package-specs": {
     "module": "commonjs",
     "in-source": true

@@ -1,14 +1,15 @@
 bs_package_flags = -bs-package-map bs-promise-monad
-src_root_dir = /Users/divertise/Dev/bs-promise-monad-bak
+src_root_dir = /Users/divertise/Dev/bs-promise-monad
 bsc = /Users/divertise/.nvm/versions/node/v8.6.0/lib/node_modules/bs-platform/lib/bsc.exe
 bsdep = /Users/divertise/.nvm/versions/node/v8.6.0/lib/node_modules/bs-platform/lib/bsb_helper.exe
 warnings = -w -30-40+6+7+27+32..39+44+45+101 -warn-error +101
-bsc_flags = -bs-suffix -nostdlib -I '/Users/divertise/Dev/bs-promise-monad-bak/node_modules/bs-platform/lib/ocaml' -no-alias-deps -color always
+bsc_flags = -bs-suffix -nostdlib -I '/Users/divertise/Dev/bs-promise-monad/node_modules/bs-platform/lib/ocaml' -bs-no-version-header -bs-super-errors -no-alias-deps -color always
 ppx_flags = 
-bs_package_includes = -I /Users/divertise/Dev/bs-promise-monad-bak/node_modules/bs-webapi/lib/ocaml
+bs_package_includes = -I /Users/divertise/Dev/bs-promise-monad/node_modules/bs-webapi/lib/ocaml
 bs_package_dev_includes = 
 namespace = -ns BsPromiseMonad
 bsb_dir_group = 0
+bsc_group_1_includes = -I example
 refmt = /Users/divertise/.nvm/versions/node/v8.6.0/lib/node_modules/bs-platform/lib/refmt.exe
 reason_react_jsx = 
 refmt_flags = --print binary
@@ -16,15 +17,23 @@ bsc_lib_includes = -I . -I src
 rule build_ast_and_module_sets_from_re
   command = ${bsc} -pp "${refmt} ${refmt_flags}" ${reason_react_jsx}  ${ppx_flags} ${warnings} ${bsc_flags} -c -o ${out} -bs-syntax-only -bs-binary-ast -impl ${in}
   description = [34mBuilding[39m [2m${out}[22m
-build src/PromiseMonad.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/PromiseMonad.re
+build example/basic.mlast : build_ast_and_module_sets_from_re $src_root_dir/example/basic.re
 rule build_deps
   command = ${bsdep} ${namespace} -g ${bsb_dir_group} -MD ${in}
   description = [34mBuilding[39m [2m${out}[22m
-build src/PromiseMonad.mlast.d : build_deps src/PromiseMonad.mlast
+build example/basic.mlast.d : build_deps example/basic.mlast
+  bsb_dir_group = 1
 rule build_cmj_cmi
   command = ${bsc} ${bs_package_flags} -bs-assume-no-mli -bs-no-builtin-ppx-ml -bs-no-implicit-include ${bs_package_includes} ${bsc_lib_includes} ${bsc_extra_includes} ${warnings} ${bsc_flags} -o ${out} -c  ${in} $postbuild
   depfile = ${in}.d
   description = [34mBuilding[39m [2m${out}[22m
+build example/basic-BsPromiseMonad.cmj |  $src_root_dir/example/basic.bs.js example/basic-BsPromiseMonad.cmi : build_cmj_cmi example/basic.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:example
+  bs_package_includes = $bs_package_includes $bs_package_dev_includes
+  bsc_extra_includes = $bsc_group_1_includes
+build src/PromiseMonad.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/PromiseMonad.re
+build src/PromiseMonad.mlast.d : build_deps src/PromiseMonad.mlast
 build src/PromiseMonad-BsPromiseMonad.cmj |  $src_root_dir/src/PromiseMonad.bs.js src/PromiseMonad-BsPromiseMonad.cmi : build_cmj_cmi src/PromiseMonad.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
@@ -32,4 +41,4 @@ rule build_package
   command = ${bsc} -w -49 -no-alias-deps -c ${in}
   description = [34mBuilding[39m [2m${out}[22m
 build BsPromiseMonad.cmi : build_package BsPromiseMonad.mlmap
-build build.ninja : phony  ||  BsPromiseMonad.cmi src/PromiseMonad.mlast.d
+build build.ninja : phony  ||  BsPromiseMonad.cmi src/PromiseMonad.mlast.d example/basic.mlast.d
