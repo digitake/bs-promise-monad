@@ -13,5 +13,5 @@ let error = (a: exn) : Js.Promise.t('a) => Js.Promise.reject(a);
 let (>>=) = (m: Js.Promise.t('a), f: 'a => Js.Promise.t('b)) =>
   Js.Promise.then_(f, m);
 
-let (>>|) = (m: Js.Promise.t('a), f: Js.Promise.error => Js.Promise.t('b)) =>
+let (>>|) = (m: Js.Promise.t('a), f: Js.Promise.error => Js.Promise.t('a)) =>
   Js.Promise.catch(f, m);
