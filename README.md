@@ -32,7 +32,7 @@ mySweetenPromise
     Js.log(value);
     return(value + 3);
   })
->>= (err => {
+>>| (err => {
     Js.log2("Failure!!", err);
     return(-2);
   });
