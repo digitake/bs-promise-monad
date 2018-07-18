@@ -10,6 +10,12 @@ This module is simple and self-completed. It means that you can use it with conf
 
 `npm install bs-promise-monad --save`
 
+and add
+
+`bs-promise-monad` into bsconfig.json.
+
+You also need to install bs-webapi.
+
 # Usage
 
 simply 
