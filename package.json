@@ -22,7 +22,7 @@
     "clean": "bsb -clean-world"
   },
   "devDependencies": {
-    "bs-platform": "^2.2.3",
+    "bs-platform": "^2.2.3"
   },
   "dependencies": {
     "bs-webapi": "^0.9.1"
