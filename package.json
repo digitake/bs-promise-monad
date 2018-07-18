@@ -23,10 +23,9 @@
   },
   "devDependencies": {
     "bs-platform": "^2.2.3",
-    "bs-webapi": "^0.9.1"
   },
   "dependencies": {
-
+    "bs-webapi": "^0.9.1"
   },
   "files": [
     "src/",
