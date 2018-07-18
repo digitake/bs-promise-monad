@@ -3,7 +3,7 @@
   "description": "A monadic syntax to work with Promise.",
   "license": "MIT",
   "author": "digitake@gmail.com",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "keywords": [
     "BuckleScript",
     "Promise",
