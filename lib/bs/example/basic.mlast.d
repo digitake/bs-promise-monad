@@ -1,1 +1,0 @@
-example/basic-BsPromiseMonad.cmj : src/PromiseMonad-BsPromiseMonad.cmj

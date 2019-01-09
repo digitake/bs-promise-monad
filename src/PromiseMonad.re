@@ -13,6 +13,7 @@ let error = (a: exn) : Js.Promise.t('a) => Js.Promise.reject(a);
 let (>>=) = (m: Js.Promise.t('a), f: 'a => Js.Promise.t('b)) =>
   Js.Promise.then_(f, m);
 
+/** Same as >>= with auto return */
 let (>>-) = (m: Js.Promise.t('a), f: 'a => 'b) =>
   Js.Promise.then_(a => return(f(a)), m);
 
