@@ -3,10 +3,10 @@ Monadic syntax to work with promise in ReasonML
 
 This project is a minimal syntax extension that help you to be more happy, and keep every promise in a way.
 
-# status
+## status
 This module is simple and self-completed. It means that you can use it with confidence that it won't bring any breaking changes in a subsequent update.
 
-# installation
+## installation
 
 `npm install bs-promise-monad --save`
 
@@ -16,15 +16,15 @@ and add
 
 You also need to install bs-webapi.
 
-# Usage
+## Usage
 
-simply 
+simply
 
 `open PromiseMonad;`
 
 and enjoy life.
 
-# Example
+## Example
 
 ```
 let mySweetenPromise = return(2);
@@ -73,7 +73,7 @@ breakPromise
 ```
 
 
-# Change
+## Change
 
 - v0.3.3 : fix module dependencies
 - v0.3.0 : merge in auto return from @baldurh . Thanks!!
