@@ -69,6 +69,7 @@ breakPromise
 
 # Change
 
+- v0.3.1 : fix module dependencies
 - v0.3.0 : merge in auto return from @baldurh . Thanks!!
 - v0.2.9 : fix type signature.
 - v0.2.6 : update example on error handling
