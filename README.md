@@ -69,6 +69,8 @@ breakPromise
 
 # Change
 
+- v0.3.0 : merge in auto return from @baldurh . Thanks!!
+- v0.2.9 : fix type signature.
 - v0.2.6 : update example on error handling
 - v0.2.5 : add error handling (>>|)
 - v0.2.0 : add Promise.reject by `error`

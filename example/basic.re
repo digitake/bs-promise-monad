@@ -32,6 +32,11 @@ mySweetenPromise
     return(-2);
   });
 
+mySweetenPromise
+>>- (value => {Js.log2("from first promise:",value); value+2})
+>>- (value => {Js.log2("from second promise:", value); value+3})
+>>- (err => {Js.log2("Handled error", err); err})
+
 exception Sorry;
 let breakPromise = return("I'm trying...");
 
