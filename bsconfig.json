@@ -1,7 +1,7 @@
 {
   "name": "bs-promise-monad",
   "bsc-flags": ["-bs-no-version-header", "-bs-super-errors"],
-  "version": "0.3.1",
+  "version": "0.3.3",
   "sources": [{
       "dir": "src",
       "public": "all",

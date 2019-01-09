@@ -20,7 +20,7 @@ You also need to install bs-webapi.
 
 simply 
 
-`open BsPromiseMonad.PromiseMonad;`
+`open PromiseMonad;`
 
 and enjoy life.
 
@@ -42,6 +42,12 @@ mySweetenPromise
     Js.log2("Failure!!", err);
     return(-2);
   });
+
+/* With auto binding */
+mySweetenPromise
+>>- (value => {Js.log2("from first promise:",value); value+2})
+>>- (value => {Js.log2("from second promise:", value); value+3})
+>>- (err => {Js.log2("Handled error", err); err})
 
 ```
 
@@ -69,7 +75,7 @@ breakPromise
 
 # Change
 
-- v0.3.1 : fix module dependencies
+- v0.3.3 : fix module dependencies
 - v0.3.0 : merge in auto return from @baldurh . Thanks!!
 - v0.2.9 : fix type signature.
 - v0.2.6 : update example on error handling
