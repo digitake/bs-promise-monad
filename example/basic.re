@@ -45,3 +45,9 @@ breakPromise
 >>= ( y => error(Sorry) )
 >>= ( z => Js.log("this is skipped")|>return)
 >>| ( err => Js.log2("Handled error!!", err)|>return);
+
+breakPromise 
+>>- ( x => Js.log("Program: " ++ x))
+>>- ( y => error(Sorry) )
+>>- ( z => Js.log("this will be skipped"))
+>>/ ( err => Js.log2("Handled error!! without explicit return", err));

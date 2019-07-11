@@ -19,3 +19,5 @@ let (>>-) = (m: Js.Promise.t('a), f: 'a => 'b) =>
 
 let (>>|) = (m: Js.Promise.t('a), f: Js.Promise.error => Js.Promise.t('a)) =>
   Js.Promise.catch(f, m);
+
+let (>>/) = (m: Js.Promise.t('a), f: Js.Promise.error => 'a) => Js.Promise.catch(e => return(f(e)), m);

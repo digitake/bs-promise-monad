@@ -31,10 +31,17 @@ function $great$great$pipe(m, f) {
   return m.catch(Curry.__1(f));
 }
 
+function $great$great$slash(m, f) {
+  return m.catch((function (e) {
+                return Promise.resolve(Curry._1(f, e));
+              }));
+}
+
 exports.defer = defer;
 exports.$$return = $$return;
 exports.error = error;
 exports.$great$great$eq = $great$great$eq;
 exports.$great$great$neg = $great$great$neg;
 exports.$great$great$pipe = $great$great$pipe;
+exports.$great$great$slash = $great$great$slash;
 /* No side effect */
