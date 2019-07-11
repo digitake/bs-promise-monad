@@ -70,13 +70,19 @@ breakPromise
 >>= ( y => error(Sorry) )   /* Reject here */
 >>= ( z => Js.log("this is skipped")|>return)
 >>| ( err => Js.log2("Handled error!!", err)|>return); /* Error handling here */
-```
 
+breakPromise 
+>>- ( x => Js.log("Program: " ++ x))
+>>- ( y => error(Sorry) )
+>>- ( z => Js.log("this will be skipped"))
+>>/ ( err => Js.log2("Handled error!! without explicit return", err));
+```
 
 ## Change
 
+- v0.4.0 : Update bs-platform, bs-webapi. Add auto-catch(>>/) from @rolandpeelen . Many thanks!!
 - v0.3.3 : fix module dependencies
-- v0.3.0 : merge in auto return from @baldurh . Thanks!!
+- v0.3.0 : merge in auto-return(>>-) from @baldurh . Thanks!!
 - v0.2.9 : fix type signature.
 - v0.2.6 : update example on error handling
 - v0.2.5 : add error handling (>>|)
