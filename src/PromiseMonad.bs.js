@@ -1,5 +1,6 @@
 'use strict';
 
+var List = require("bs-platform/lib/js/list.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 
 function defer(f) {
@@ -37,6 +38,10 @@ function $great$great$slash(m, f) {
               }));
 }
 
+function $great$great$star(m, flist) {
+  return List.fold_left($great$great$neg, m, flist);
+}
+
 exports.defer = defer;
 exports.$$return = $$return;
 exports.error = error;
@@ -44,4 +49,5 @@ exports.$great$great$eq = $great$great$eq;
 exports.$great$great$neg = $great$great$neg;
 exports.$great$great$pipe = $great$great$pipe;
 exports.$great$great$slash = $great$great$slash;
+exports.$great$great$star = $great$great$star;
 /* No side effect */

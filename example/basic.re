@@ -51,3 +51,14 @@ breakPromise
 >>- ( y => error(Sorry) )
 >>- ( z => Js.log("this will be skipped"))
 >>/ ( err => Js.log2("Handled error!! without explicit return", err));
+
+
+let origin = return(2);
+
+let transformPipe = [
+  x => 1,
+  x => 2,
+  x => 3
+  ];
+
+origin >>* transformPipe;

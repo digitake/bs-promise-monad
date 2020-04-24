@@ -3,21 +3,23 @@
  * MIT License
  * Thanks.
  */
-let defer = f : Js.Promise.t('a) =>
-  Js.Promise.make((~resolve, ~reject as _) => ignore(f(resolve)));
+/* create an alias to improve readabiity */
+open Js.Promise;
+type promise('a) = Js.Promise.t('a);
 
-let return = (a: 'a) : Js.Promise.t('a) => Js.Promise.resolve(a);
+let defer = f : promise('a) => make((~resolve, ~reject as _) => ignore(f(resolve)));
 
-let error = (a: exn) : Js.Promise.t('a) => Js.Promise.reject(a);
+let return = (a: 'a) : promise('a) => resolve(a);
 
-let (>>=) = (m: Js.Promise.t('a), f: 'a => Js.Promise.t('b)) =>
-  Js.Promise.then_(f, m);
+let error = (a: exn) : promise('a) => reject(a);
+
+let (>>=) = (m: promise('a), f: 'a => promise('b)) => then_(f, m);
 
 /** Same as >>= with auto return */
-let (>>-) = (m: Js.Promise.t('a), f: 'a => 'b) =>
-  Js.Promise.then_(a => return(f(a)), m);
+let (>>-) = (m: promise('a), f: 'a => 'b) => then_(a => return(f(a)), m);
 
-let (>>|) = (m: Js.Promise.t('a), f: Js.Promise.error => Js.Promise.t('a)) =>
-  Js.Promise.catch(f, m);
+let (>>|) = (m: promise('a), f: error => promise('a)) => catch(f, m);
 
-let (>>/) = (m: Js.Promise.t('a), f: Js.Promise.error => 'a) => Js.Promise.catch(e => return(f(e)), m);
+let (>>/) = (m: promise('a), f: error => 'a) => catch(e => return(f(e)), m);
+
+let (>>*) = (m: promise('x), flist: list('a => 'b)) => List.fold_left((>>-), m, flist);
