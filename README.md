@@ -14,8 +14,6 @@ and add
 
 `bs-promise-monad` into bsconfig.json.
 
-You also need to install bs-webapi.
-
 ## Usage
 
 simply
@@ -78,8 +76,21 @@ breakPromise
 >>/ ( err => Js.log2("Handled error!! without explicit return", err));
 ```
 
+```
+let sequenceStart = return(7);
+
+breakPromise >>* [
+  (x => x+2),
+  (x => x*3),
+  (x => x+4)
+]
+```
+
 ## Change
 
+- v0.4.3 : Remove unused dependency
+- v0.4.1 : Add >>* operator
+- v0.4.1 : Update bs-platfrom to 7.3.1
 - v0.4.0 : Update bs-platform, bs-webapi. Add auto-catch(>>/) from @rolandpeelen . Many thanks!!
 - v0.3.3 : fix module dependencies
 - v0.3.0 : merge in auto-return(>>-) from @baldurh . Thanks!!
