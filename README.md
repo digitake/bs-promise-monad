@@ -3,6 +3,8 @@ Monadic syntax to work with promise in ReasonML
 
 This project is a minimal syntax extension that help you to be more happy, and keep every promise in a way.
 
+---
+[![Package Quality](https://npm.packagequality.com/badge/bs-promise-monad.png)](https://packagequality.com/#?package=bs-promise-monad)
 ## status
 This module is simple and self-completed. It means that you can use it with confidence that it won't bring any breaking changes in a subsequent update.
 
