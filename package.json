@@ -3,7 +3,7 @@
   "description": "A monadic syntax to work with Promise.",
   "license": "MIT",
   "author": "digitake@gmail.com",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "keywords": [
     "BuckleScript",
     "Promise",
@@ -22,16 +22,16 @@
     "clean": "bsb -clean-world"
   },
   "devDependencies": {
-    "bs-platform": "^7.3.1"
+    "bs-platform": "^9.0.2"
   },
   "peerDependencies": {
-    "bs-platform": "^7.3.1"
+    "bs-platform": "^9.0.2"
   },
   "files": [
     "src/",
     "bsconfig.json"
   ],
   "dependencies": {
-    "bs-fetch": "^0.5.2"
+    "bs-fetch": "^0.6"
   }
 }
