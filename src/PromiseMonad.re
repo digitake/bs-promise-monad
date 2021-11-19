@@ -18,6 +18,10 @@ let (>>=) = (m: promise('a), f: 'a => promise('b)) => then_(f, m);
 /** Same as >>= with auto return */
 let (>>-) = (m: promise('a), f: 'a => 'b) => then_(a => return(f(a)), m);
 
+/** return unit promise */
+let (>>.) : (promise('a), 'a=>unit) => unit = 
+    (m, f) =>  then_(a => return(f(a)), m) |> ignore;
+
 let (>>|) = (m: promise('a), f: error => promise('a)) => catch(f, m);
 
 let (>>/) = (m: promise('a), f: error => 'a) => catch(e => return(f(e)), m);
